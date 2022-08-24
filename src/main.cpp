@@ -12,10 +12,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  MonteCarlo monte_carlo(factor,
-                         1e3,
-                         1e4,
-                         1e10);
+  MonteCarlo monte_carlo(factor);
   monte_carlo.Simulate();
   return 0;
 }

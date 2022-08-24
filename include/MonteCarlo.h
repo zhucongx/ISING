@@ -5,10 +5,7 @@
 #include "Config.h"
 class MonteCarlo {
   public:
-    MonteCarlo(const Factor_t &factors,
-               unsigned long long int log_dump_steps,
-               unsigned long long int config_dump_steps,
-               unsigned long long int maximum_number);
+    MonteCarlo(const Factor_t &factors);
     void Simulate();
   private:
     inline void Dump(std::ofstream &ofs);
