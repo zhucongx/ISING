@@ -63,7 +63,7 @@ void MonteCarlo::Simulate() {
 void MonteCarlo::Dump(std::ofstream &ofs) {
   if (energy_ < lowest_energy_ - kEpsilon) {
     lowest_energy_ = energy_;
-    config_.WriteCfg("lowest_energy.cfg", false);
+    // config_.WriteCfg("lowest_energy.cfg", false);
     ofs << steps_ << '\t' << energy_ / config_.GetNumAtoms() << '\t' << energy_ << '\t'
         << lowest_energy_ << '\t' << count_
         << std::endl;
