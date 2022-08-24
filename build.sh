@@ -23,6 +23,5 @@ mkdir build
 cd build
 
 cmake -DCMAKE_BUILD_TYPE="$mode" -S ..
-fi
 make -j 12
 cd ..
