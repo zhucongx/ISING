@@ -21,20 +21,16 @@ double Hamiltonian::GetEnergy(const Config &config) const {
   return energy / 2;
 }
 double Hamiltonian::GetEnergyChange(const Config &config, size_t index) const {
-
-  const auto &first_neighbors_adjacency_lists = config.GetFirstNeighborsAdjacencyList();
-  const auto &second_neighbors_adjacency_lists = config.GetSecondNeighborsAdjacencyList();
-
   double energy_change = 0.0;
   int old_spin = config.GetAtomVector()[index].GetSpin();
   int new_spin = -old_spin;
 
-  for (auto j: first_neighbors_adjacency_lists[index]) {
+  for (auto j: config.GetFirstNeighborsAdjacencyList()[index]) {
     int spin2 = config.GetAtomVector()[j].GetSpin();
     energy_change += J * new_spin * spin2;
     energy_change -= J * old_spin * spin2;
   }
-  for (auto j: second_neighbors_adjacency_lists[index]) {
+  for (auto j: config.GetSecondNeighborsAdjacencyList()[index]) {
     int spin2 = config.GetAtomVector()[j].GetSpin();
     energy_change += J * new_spin * spin2;
     energy_change -= J * old_spin * spin2;

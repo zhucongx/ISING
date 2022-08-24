@@ -40,12 +40,8 @@ const std::vector<std::vector<size_t> > &Config::GetSecondNeighborsAdjacencyList
   return second_neighbors_adjacency_list_;
 }
 
-int Config::GetSpinAtLatticeId(size_t lattice_id) const {
-  return atom_vector_[lattice_id].GetSpin();
-}
-
 void Config::ChangeSpinAt(size_t lattice_id) {
-  atom_vector_.at(lattice_id).SetSpin(-GetSpinAtLatticeId(lattice_id));
+  atom_vector_[lattice_id].FlipSpin();
 }
 
 void Config::WriteCfg(const std::string &filename, bool neighbors_info) const {

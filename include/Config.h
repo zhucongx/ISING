@@ -22,7 +22,6 @@ class Config {
     [[nodiscard]] const std::vector<Atom> &GetAtomVector() const;
     [[nodiscard]] const std::vector<std::vector<size_t> > &GetFirstNeighborsAdjacencyList() const;
     [[nodiscard]] const std::vector<std::vector<size_t> > &GetSecondNeighborsAdjacencyList() const;
-    [[nodiscard]] int GetSpinAtLatticeId(size_t lattice_id) const;
     /// Modify config
     void ChangeSpinAt(size_t lattice_id);
     /// IO

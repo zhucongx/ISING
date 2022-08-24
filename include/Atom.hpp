@@ -29,6 +29,9 @@ struct Atom {
     void SetSpin(const int &spin) {
       spin_ = spin;
     }
+    void FlipSpin() {
+      spin_ *= -1;
+    }
   private:
     // atom id
     size_t id_{};
