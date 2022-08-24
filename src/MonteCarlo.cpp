@@ -5,8 +5,8 @@ MonteCarlo::MonteCarlo(const Factor_t &factors)
     : config_(GenerateFCC(factors)),
       log_dump_steps_(factors[0] * factors[1] * factors[2] * 4e1),
       config_dump_steps_(factors[0] * factors[1] * factors[2] * 4e3),
-      maximum_number_(factors[0] * factors[1] * factors[2]* 4e6),
-      early_stop_number_(factors[0] * factors[1] * factors[2]* 4e4),
+      maximum_number_(factors[0] * factors[1] * factors[2]* 4e7),
+      early_stop_number_(factors[0] * factors[1] * factors[2]* 4e5),
       hamiltonian_(1. / 2.89, -5. / 2.89),
       generator_(static_cast<unsigned long long int>(
                      std::chrono::system_clock::now().time_since_epoch().count())),
