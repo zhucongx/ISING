@@ -3,7 +3,7 @@
 #include "MonteCarlo.h"
 MonteCarlo::MonteCarlo(const Factor_t &factors)
     : config_(GenerateFCC(factors)),
-      log_dump_steps_(factors[0] * factors[1] * factors[2] * 4e1),
+      log_dump_steps_(factors[0] * factors[1] * factors[2] * 4e0),
       config_dump_steps_(factors[0] * factors[1] * factors[2] * 4e3),
       maximum_number_(factors[0] * factors[1] * factors[2]* 4e7),
       early_stop_number_(factors[0] * factors[1] * factors[2]* 4e5),
@@ -12,10 +12,9 @@ MonteCarlo::MonteCarlo(const Factor_t &factors)
                      std::chrono::system_clock::now().time_since_epoch().count())),
       index_selector_(0, config_.GetNumAtoms() - 1) {
   energy_ = hamiltonian_.GetEnergy(config_);
-  std::ofstream ofs("mc_log.txt", std::ofstream::out | std::ofstream::app);
-  ofs << "factor: " << factors[0] << " " << factors[1] << " " << factors[2] << std::endl;
-  ofs << "energy: " << energy_ << std::endl;
-  ofs << "early_stop_number: " << early_stop_number_ << std::endl;
+  std::cout << "factor: " << factors[0] << " " << factors[1] << " " << factors[2] << std::endl;
+  std::cout << "energy: " << energy_ << std::endl;
+  std::cout << "early_stop_number: " << early_stop_number_ << std::endl;
 }
 void MonteCarlo::Simulate() {
   std::ofstream ofs("mc_log.txt", std::ofstream::out | std::ofstream::app);
